@@ -1,0 +1,86 @@
+:root {
+  --bg: #121212;
+  --bg-invert: #ffffff;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+body {
+  background: var(--bg);
+  color: var(--bg-invert);
+}
+
+.btn {
+  background: var(--bg-invert);
+  height: 2.5rem;
+  padding: 0rem 1rem;
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  color: var(--bg);
+  transition: background 0.15s ease;
+  cursor: pointer;
+}
+.btn:hover {
+  filter: brightness(0.85);
+}
+
+.btn-pill {
+  border-radius: 2rem;
+}
+
+.login-container {
+  /* background: red; */
+  width: 100%;
+  max-width: 24rem;
+  padding: 0 1rem;
+}
+.loader {
+  --color-1: #fff;
+  --size: 1px;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+
+.loader.primary:before {
+  border-color: #0078ea;
+}
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 5px solid var(--color-1);
+  animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
