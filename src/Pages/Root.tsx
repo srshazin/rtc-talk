@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Login from "./Login";
 import ValidateAuth from "./ValidateAuth";
-import { useAuth } from "./Contexts/AuthContexts";
+
 import AuthLoadingScreen from "../Components/AuthLoadingScreen";
 import Home from "./User/Home";
+import { useAuth } from "../Contexts/AuthContexts";
 
 const Root = () => {
   const { loading, user, authorize } = useAuth();

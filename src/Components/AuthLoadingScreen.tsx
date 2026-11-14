@@ -1,6 +1,4 @@
-import React from "react";
 import Loader from "./Loader";
-import { useAuth } from "../Pages/Contexts/AuthContexts";
 
 const AuthLoadingScreen = () => {
   return (

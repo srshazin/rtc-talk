@@ -22,6 +22,7 @@ body {
   color: var(--bg);
   transition: background 0.15s ease;
   cursor: pointer;
+  align-items: center;
 }
 .btn:hover {
   filter: brightness(0.85);
@@ -83,4 +84,97 @@ body {
   100% {
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
   }
+}
+.user-panel-wrapper {
+  background: #1f1f1f;
+  width: 90dvw;
+  max-width: 105rem;
+  margin: auto;
+  height: 90dvh;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.up-inner {
+  height: 100%;
+  display: flex;
+  padding: 1rem;
+  gap: 4px;
+}
+
+.up-pane {
+  background: var(--bg);
+  flex: 1;
+  overflow: clip;
+  overflow-y: auto;
+  position: relative;
+}
+
+.up-pane:nth-child(1) {
+  border-radius: 2rem 10px 10px 2rem;
+}
+
+.up-pane:nth-child(2) {
+  border-radius: 10px 2rem 2rem 10px;
+}
+img.h-pfp {
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+.call-card {
+  background: #1f1f1f;
+  margin-bottom: 0.5em;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.call-list {
+  padding: 0 1rem;
+}
+
+.btn-icon {
+  height: 2.6rem;
+  width: 2.6rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14pt;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.12s;
+}
+
+.btn-icon:hover {
+  background: var(--bg);
+}
+.input {
+  width: 22rem;
+  background: #1f1f1f;
+  border-radius: 10px;
+  height: 3rem;
+  padding: 0 1rem;
+  transition: 0.12s;
+}
+
+input.input:focus {
+  outline: 2px solid #ffffff;
+  box-shadow: 0 0 0 6px #ffffff21;
+}
+
+input.input.input-explore {
+  width: 100%;
+  border-radius: 3rem;
+  height: 4rem;
+  margin-bottom: 0.7rem;
+}
+
+.btn-search {
+  width: 100%;
+  height: 4rem;
+}
+
+.dlekdok {
+  height: 7dvh;
 }

@@ -1,7 +1,8 @@
 import { use, useEffect, useState } from "react";
 import Loader from "../Components/Loader";
-import { useAuth } from "./Contexts/AuthContexts";
+
 import { useNavigate } from "react-router";
+import { useAuth } from "../Contexts/AuthContexts";
 
 const ValidateAuth = () => {
   const { confirmSignIn } = useAuth();

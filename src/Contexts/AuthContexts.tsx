@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
-import { API } from "../libs/apiClient";
+import { API } from "../Pages/libs/apiClient";
 
 interface AuthContextStates {
   user: User | null;
