@@ -178,3 +178,84 @@ input.input.input-explore {
 .dlekdok {
   height: 7dvh;
 }
+.dropdown {
+  background: #1f1f1f;
+  position: absolute;
+  width: 5rem;
+  bottom: -2rem;
+  height: 2rem;
+  z-index: 11;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.ddn-item {
+  background: #1f1f1f;
+  text-align: center;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn.btn-sm {
+  height: 2rem;
+  padding: 0 0.5rem;
+}
+.call-sig-screen {
+  background: #121212b0;
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0rem;
+  backdrop-filter: blur(19px);
+}
+
+img.sig-pfg {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+}
+
+.signaling-center {
+  text-align: center;
+}
+
+.sigs-name {
+  font-size: 21pt;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.call-actions {
+  display: flex;
+  gap: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 5rem;
+  width: 19rem;
+  justify-content: space-between;
+  background: #1f1f1f;
+  border: 2px solid #ffffff2b;
+}
+
+button.btn-call-action {
+  height: 4rem;
+  background: #000;
+  width: 4rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24pt;
+  background: #049113;
+  cursor: pointer;
+}
+
+button.btn-call-action.danger {
+  background: #f91e2c;
+}

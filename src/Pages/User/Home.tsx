@@ -1,17 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../../Contexts/AuthContexts";
 import { callList } from "../libs/dummy";
 import CallListCard from "./CallListCard";
 import { IoSearch } from "react-icons/io5";
+import ProfileImage from "../../Components/ProfileImage";
+import { useNavigate } from "react-router";
+import Search from "../../Components/Search";
+import { API } from "../libs/apiClient";
+import AuthLoadingScreen from "../../Components/AuthLoadingScreen";
+import Requests from "../../Components/Requests";
+import Connections from "../../Components/Connections";
+import CallSignalScreen from "../../Components/SignalingScreen";
+
+export interface ConnReq {
+  id: number;
+  name: string;
+  picture: string;
+  conn_id: number;
+}
+interface HomeResponse {
+  requests: ConnReq[];
+  connections: ConnReq[];
+}
 
 const Home = () => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+  const [data, setData] = useState<HomeResponse | null>(null);
+  const fetchHome = async () => {
+    const { data, error } = await API.get("/user/home");
+    if (error) return alert(error);
+    setData(data);
+  };
+
+  useEffect(() => {
+    if (data == null) fetchHome();
+  }, []);
+  if (data == null) return <AuthLoadingScreen />;
   return (
     <div className="h-dvh w-dvw flex justify-center">
+      <CallSignalScreen />
       <div>
         <div className="flex justify-between items-center gap-2 dlekdok">
           <h1 className="font-black text-3xl">RTC Talk</h1>
-          <img src={user!.picture} alt="" className="h-pfp" />
+          <ProfileImage
+            // logout={() => signOut(() => navigate("/"))}
+            logout={() => console.log("HI")}
+            uri={user!.picture}
+          />
         </div>
         <div className="user-panel-wrapper">
           <div className="up-inner">
@@ -36,18 +72,11 @@ const Home = () => {
               >
                 Explore
               </h2>
-              <div className="explore-wrapper">
-                <div className="p-4">
-                  <input
-                    type="text"
-                    className="input input-explore"
-                    placeholder="Name or Email"
-                  />
-                  <button className="btn btn-pill btn-search">
-                    <IoSearch /> Find Connection
-                  </button>
-                </div>
-              </div>
+              <Search />
+              {data.requests.length > 0 && <Requests reqs={data.requests} />}
+              {data.connections.length > 0 && (
+                <Connections reqs={data.connections} />
+              )}
             </div>
           </div>
         </div>
